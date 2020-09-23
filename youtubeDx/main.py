@@ -36,5 +36,10 @@ SPREADSHEET_KEY = '1SPtc2Qj836jGdyY3EKmEhCPU42H7umWg5HtiuQqq4m4'
 workbook = gc.open_by_key(SPREADSHEET_KEY)
 worksheet = workbook.worksheet('list')
 
-set_with_dataframe(worksheet, df_youtuber)
-df_youtuber2 = get_as_dataframe(worksheet)
+li_youtuber = df_youtuber.values.tolist()
+print(li_youtuber)
+worksheet.append_rows(li_youtuber)
+
+
+# set_with_dataframe(worksheet, df_youtuber)
+# df_youtuber2 = get_as_dataframe(worksheet)
