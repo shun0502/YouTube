@@ -26,6 +26,7 @@ print('おめ')
 
 
 df_youtuber = pd.read_csv('C:/youtuber/youtuber.csv', encoding="shift-jis")
+df_youtuber = df_youtuber.reindex(columns=['チャンネルurl','調査日時','調査名','キーワード','ページ','ページ内順位',' 動画タイトル','動画url','視聴回数','チャンネル名','登録者数'])
 print(df_youtuber)
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -35,6 +36,10 @@ gc = gspread.authorize(credentials)
 SPREADSHEET_KEY = '1SPtc2Qj836jGdyY3EKmEhCPU42H7umWg5HtiuQqq4m4'
 workbook = gc.open_by_key(SPREADSHEET_KEY)
 worksheet = workbook.worksheet('list')
+
+
+
+
 
 li_youtuber = df_youtuber.values.tolist()
 print(li_youtuber)
